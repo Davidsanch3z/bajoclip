@@ -1,52 +1,98 @@
 # README
 
-## Proyecto: Enlaces de Inicio de Sesión para Redes Sociales
+# Proyecto de Descarga de Videos desde Redes Sociales (BajaClip)
 
-### Descripción General
-Este proyecto proporciona una interfaz web que permite a los usuarios acceder a las páginas de inicio de sesión de las redes sociales más populares, como Instagram, Twitter (X) y Facebook, desde un solo lugar. El objetivo principal es facilitar la navegación y mejorar la experiencia del usuario al centralizar el acceso a estas plataformas.
+## Descripción
+**BajaClip** es una aplicación web desarrollada con Flask y yt-dlp que permite descargar videos de redes sociales como Facebook, Instagram y Twitter. Los usuarios pueden proporcionar la URL del video y la aplicación lo descargará en formato MP4 para su posterior visualización o almacenamiento.
 
-### Características
-- **Acceso directo a redes sociales**: Botones interactivos que redirigen a las páginas de inicio de sesión de Instagram, Twitter y Facebook.
-- **Diseño intuitivo**: Íconos SVG personalizables para cada red social.
-- **Texto descriptivo**: Breve texto que invita al usuario a "iniciar sesión", proporcionando contexto adicional.
-- **Estilización adaptable**: Opcionalmente, se puede agregar CSS personalizado para mejorar la estética y la adaptabilidad.
-- **Integración fácil**: Se puede añadir fácilmente a cualquier página web o aplicación como una sección independiente.
+Este proyecto fue creado para demostrar habilidades en desarrollo web utilizando tecnologías como Python, Flask, y herramientas de descarga como yt-dlp.
 
-### Tecnologías Utilizadas
-1. **HTML**: Utilizado para la estructura de la página y el contenido de los elementos.
-2. **SVG**: Implementado para mostrar íconos gráficos de alta calidad de las redes sociales.
-3. **CSS**: Utilizado para estilizar los botones e íconos, centrar los elementos y asegurar una buena presentación visual.
-4. **Flask** (opcional): Para manejar la aplicación web si se desea integrar este proyecto en un entorno de back-end más amplio.
-5. **JavaScript** (opcional): Se puede usar si se desea agregar funcionalidad dinámica, como animaciones de carga o manejo de eventos.
+## Tecnologías Utilizadas
 
-### Instalación y Uso
-1. **Descargar los archivos**: Clonar o descargar el repositorio en tu máquina local.
-   ```bash
-   git clone https://github.com/tu_usuario/proyecto-enlaces-redes.git
-   ```
-2. **Abrir en un navegador**: Simplemente abre el archivo `index.html` en tu navegador preferido.
-3. **Integración en un proyecto existente**:
-   - Copia y pega el código HTML y los íconos SVG en tu proyecto.
-   - Añade el archivo CSS o copia los estilos directamente en tu hoja de estilos.
-   - (Opcional) Si usas Flask u otro framework de back-end, asegúrate de renderizar la plantilla y manejar las rutas adecuadamente.
+- **Flask**: Framework ligero de Python para el desarrollo de aplicaciones web.
+- **yt-dlp**: Herramienta de descarga de videos que soporta múltiples plataformas de redes sociales, como YouTube, Facebook, Instagram y Twitter.
+- **HTML/CSS**: Para el diseño y maquetación de la interfaz de usuario.
+- **JavaScript**: Para mejorar la interactividad en el lado del cliente.
+- **FFmpeg**: Utilizado para convertir los videos descargados a formato MP4, si es necesario.
+- **Bootstrap**: Para proporcionar un diseño responsivo y limpio en la interfaz de usuario.
 
-### Estructura de Archivos
-```
-proyecto-enlaces-redes/
+## Instalación
+
+### 1. Clonar el repositorio
+
+Clona este repositorio en tu máquina local:
+
+git clone https://github.com/tu_usuario/bajaclip.git
+2. Instalar dependencias
+Crea un entorno virtual y activa el entorno. Luego, instala las dependencias necesarias:
+
+bash
+Copiar código
+# Crear entorno virtual (si no lo tienes)
+python -m venv venv
+
+# Activar entorno virtual
+# En Windows
+venv\Scripts\activate
+# En macOS/Linux
+source venv/bin/activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+3. Instalar FFmpeg
+Para que el proyecto funcione correctamente con la conversión de videos a formato MP4, necesitas tener FFmpeg instalado en tu sistema.
+
+Windows: Descargar FFmpeg
+macOS/Linux: Puedes instalar FFmpeg usando Homebrew (macOS) o apt (Linux):
+bash
+Copiar código
+brew install ffmpeg # macOS
+sudo apt install ffmpeg # Linux
+4. Ejecutar la aplicación
+Una vez que hayas instalado todas las dependencias, puedes ejecutar la aplicación con el siguiente comando:
+
+bash
+Copiar código
+python app.py
+Accede a la aplicación desde tu navegador visitando http://127.0.0.1:5000/.
+
+Uso
+Ingresa la URL de un video de redes sociales en el campo correspondiente de la página de inicio.
+Haz clic en el botón "Descargar" para iniciar la descarga del video.
+El video será descargado en formato MP4.
+Estructura de Archivos
+graphql
+Copiar código
+bajaclip/
 │
-├── index.html           # Archivo principal de la interfaz
-├── styles.css           # Archivo CSS para estilizar la página
-├── README.md            # Este archivo de documentación
-└── icons/               # (Opcional) Carpeta con íconos SVG
-```
+├── app.py                # Código principal de la aplicación Flask
+├── downloads/            # Carpeta donde se guardan los videos descargados
+├── static/
+│   ├── css/
+│   │   └── styles.css    # Archivos CSS para el diseño
+│   └── js/
+│       └── script.js     # Archivos JavaScript (si es necesario)
+├── templates/
+│   └── index.html        # Plantilla HTML principal
+└── requirements.txt      # Dependencias del proyecto
+Contribuciones
+Si deseas contribuir al proyecto, sigue estos pasos:
 
-### Cómo Personalizar
-- **Cambiar íconos**: Puedes sustituir los SVGs por otros de tu elección si deseas cambiar el aspecto de los botones.
-- **Modificar estilos**: Actualiza el archivo CSS para ajustar el diseño, colores y posicionamiento.
-- **Agregar funcionalidad**: Utiliza JavaScript para manejar eventos, como mostrar un mensaje cuando se hace clic en un enlace.
+Haz un fork del repositorio.
+Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+Realiza tus cambios y confirma los cambios (git commit -am 'Añadir nueva funcionalidad').
+Haz un push a la rama (git push origin feature/nueva-funcionalidad).
+Crea un Pull Request.
+Licencia
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
 
-### Licencia
-Este proyecto está bajo la [Licencia MIT](LICENSE). Puedes usarlo, modificarlo y distribuirlo libremente siempre que mantengas la atribución original.
 
-### Créditos
-Creado por [JHONATAN DAVID SANCHEZ BALDOVINO]. Agradecemos a Uiverse.io por la inspiración en la estructura de los botones.
+
+Este archivo README ahora incluye:
+
+- Descripción general del proyecto.
+- Tecnologías utilizadas.
+- Instrucciones para la instalación y uso.
+- Estructura de archivos.
+- Cómo contribuir al proyecto.
+- El código fuente de la aplicación Flask (`app.py`).
